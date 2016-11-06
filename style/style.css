@@ -397,7 +397,7 @@ ul.breadcrumbs li:first-child:before { display: block;}
 
 #profile_data .th { font-weight: 700; width: 90px; margin-right: 10px; text-align: right; display: block; float: left; color: #373737;}
 #profile_data .td { overflow: hidden; display: block;}
-#profile_data .profile_row { overflow: hidden; display:none; }
+#profile_data .profile_row { overflow: hidden; display:block; }
 #profile_data .profile_row a { text-decoration: none; color: #4ca5d0;}
 #profile_data .profile_row a:hover{color: #646464;}
 #profile_data .show{ display:block;}
