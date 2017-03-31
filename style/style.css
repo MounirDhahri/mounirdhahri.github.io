@@ -23,7 +23,7 @@ fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td {
 border: 0; font-family: inherit; font-size: 100%; font-style: inherit; font-weight: inherit; margin: 0; outline: 0; padding: 0; vertical-align: baseline;}
 html { overflow-y: scroll; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
-body { background: #f4f4f4; font-family: 'Lato', sans-serif; font-size: 14px; line-height: 20px; color: #646464;}
+body { background: #333333; font-family: 'Lato', sans-serif; font-size: 14px; line-height: 20px; color: #646464;}
 
 a img { border: none;}
 
