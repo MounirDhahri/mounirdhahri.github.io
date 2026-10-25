@@ -1,0 +1,31 @@
+---
+import Base from "../layouts/Base.astro";
+import PostList from "../components/PostList.astro";
+import { getPublishedPosts } from "../lib/posts";
+
+const latest = (await getPublishedPosts()).slice(0, 5);
+---
+
+<Base>
+  <section class="intro">
+    <h1>Hi, I'm Mounir.</h1>
+    {/* TODO(Mounir): one or two lines about you and what you write about. */}
+    <p class="muted">I'm a software engineer. I write here about what I build and learn.</p>
+  </section>
+
+  <h2>Latest writing</h2>
+  <PostList posts={latest} />
+  <p><a href="/blog/">All posts →</a></p>
+</Base>
+
+<style>
+  .intro {
+    margin-bottom: 3rem;
+  }
+  h2 {
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+  }
+</style>

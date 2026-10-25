@@ -1,0 +1,103 @@
+---
+import "../styles/global.css";
+import { GITHUB_URL, SITE_DESCRIPTION, SITE_TITLE } from "../consts";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { title, description = SITE_DESCRIPTION } = Astro.props;
+const pageTitle = title ? `${title} · ${SITE_TITLE}` : SITE_TITLE;
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const nav = [
+  { href: "/blog/", label: "Blog" },
+  { href: "/about/", label: "About" },
+];
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="canonical" href={canonicalURL} />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <link rel="alternate" type="application/rss+xml" title={SITE_TITLE} href={new URL("rss.xml", Astro.site)} />
+    <title>{pageTitle}</title>
+    <meta name="description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+  </head>
+  <body>
+    <header class="container">
+      <a class="brand" href="/">{SITE_TITLE}</a>
+      <nav>
+        {
+          nav.map((item) => (
+            <a href={item.href} aria-current={Astro.url.pathname.startsWith(item.href) ? "page" : undefined}>
+              {item.label}
+            </a>
+          ))
+        }
+      </nav>
+    </header>
+    <main class="container">
+      <slot />
+    </main>
+    <footer class="container muted">
+      <span>© {new Date().getFullYear()} {SITE_TITLE}</span>
+      <span>
+        <a href={GITHUB_URL}>GitHub</a> · <a href="/rss.xml">RSS</a>
+      </span>
+    </footer>
+  </body>
+</html>
+
+<style>
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    padding-top: 2rem;
+    padding-bottom: 3rem;
+  }
+  .brand {
+    color: var(--text);
+    font-weight: 700;
+    text-decoration: none;
+  }
+  nav {
+    display: flex;
+    gap: 1.25rem;
+  }
+  nav a {
+    color: var(--muted);
+    text-decoration: none;
+  }
+  nav a:hover,
+  nav a[aria-current="page"] {
+    color: var(--text);
+  }
+  main {
+    min-height: 60vh;
+  }
+  footer {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 4rem;
+    padding-top: 1.5rem;
+    padding-bottom: 2rem;
+    border-top: 1px solid var(--border);
+    font-size: 0.9rem;
+  }
+  footer a {
+    color: inherit;
+  }
+</style>
