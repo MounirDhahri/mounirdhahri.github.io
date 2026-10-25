@@ -1,6 +1,6 @@
 # AGENTS.md
 
-Personal site and blog for Mounir Dhahri. Astro 7, Bun, deployed to GitHub Pages.
+Personal site and blog for Mounir Dhahri. Built on the [Astro Micro](https://github.com/trevortylerlee/astro-micro) theme (Astro 6, Tailwind 4, Pagefind search), installed with Bun, deployed to GitHub Pages.
 
 ## Commands
 
@@ -12,8 +12,9 @@ Pushing to `gh-pages` deploys the live site through `.github/workflows/deploy.ym
 
 ## Posts
 
-- Posts live in `src/content/blog/` as `.md` or `.mdx`. Images go in `src/content/blog/images/` and are linked with a relative path.
-- Frontmatter follows the schema in `src/content.config.ts`: `title`, `description`, `pubDate`, optional `updatedDate`, `tags`, `draft`.
+- Each post is a folder: `src/content/blog/<slug>/index.md` (or `.mdx`), with its images next to it, linked as `./image.png`. The folder name is the URL.
+- Frontmatter follows the schema in `src/content.config.ts`: `title`, `description`, `date`, optional `tags`, `draft`.
+- Site title, descriptions and social links live in `src/consts.ts`.
 - Keep the author's wording. Fix only what breaks the build or the layout, and ask before any other edit.
 
 ## Privacy check before publishing

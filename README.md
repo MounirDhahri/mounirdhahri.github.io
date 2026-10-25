@@ -1,29 +1,31 @@
 # mounirdhahri.github.io
 
-Personal site and blog, built with [Astro](https://astro.build) and deployed to GitHub Pages.
+Personal site and blog, built with [Astro](https://astro.build) on the [Astro Micro](https://github.com/trevortylerlee/astro-micro) theme and deployed to GitHub Pages.
 
 ## Develop
 
 ```sh
 bun install
 bun run dev      # http://localhost:4321
-bun run build    # type-checks, then builds to dist/
-bun run preview
+bun run build    # type-checks, then builds to dist/ with the search index
+bun run preview  # serves dist/; search only works here, not in dev
 ```
 
 ## Write a post
 
-Add a Markdown or MDX file to `src/content/blog/`. The file name becomes the URL (`my-post.md` → `/blog/my-post/`).
+Create a folder in `src/content/blog/` with an `index.md` (or `index.mdx`) inside. The folder name becomes the URL (`my-post/` → `/blog/my-post/`). Put the post's images in the same folder and link them as `./image.png`.
 
 ```md
 ---
 title: "Post title"
 description: "One sentence for listings, RSS and search results."
-pubDate: 2026-10-25
+date: 2026-10-25
 tags: ["astro"]
-draft: true # optional; drafts show in dev but not in production
+draft: true # optional; drafts are left out of the site
 ---
 ```
+
+Before publishing, follow the privacy check in `AGENTS.md`.
 
 ## Deploy
 

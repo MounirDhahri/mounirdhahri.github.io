@@ -1,7 +1,7 @@
 ---
 title: "Five Weeks Building With AI Agents Changed How I Think About Software Engineering"
 description: "What I learned shipping City Guide in five weeks with AI coding agents: tech plans, prototypes, QA, MCP and owning code you didn't write."
-pubDate: 2026-10-25
+date: 2026-10-25
 tags: ["ai", "engineering"]
 ---
 
@@ -29,7 +29,7 @@ We had a tight deadline, one that I thought was impossible (SPOILER: I was wrong
 
 I'll leave you with a summary of how that went.
 
-![Fireworks experiment summary for City Guide](./images/city-guide-fireworks.png)
+![Fireworks experiment summary for City Guide](./city-guide-fireworks.png)
 
 *One correction to the screenshot: the actual development work took five weeks, not eight. The screenshot covers the broader August 11–October 7 reporting period.*
 

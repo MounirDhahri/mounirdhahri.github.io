@@ -1,14 +1,19 @@
-// @ts-check
 import { defineConfig } from "astro/config";
-import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
+import mdx from "@astrojs/mdx";
+import pagefind from "astro-pagefind";
+import tailwindcss from "@tailwindcss/vite";
 
+// https://astro.build/config
 export default defineConfig({
   site: "https://mounirdhahri.github.io",
-  integrations: [mdx(), sitemap()],
+  integrations: [sitemap(), mdx(), pagefind()],
+  vite: {
+    plugins: [tailwindcss()],
+  },
   markdown: {
     shikiConfig: {
-      themes: { light: "github-light", dark: "github-dark" },
+      theme: "css-variables",
     },
   },
 });
