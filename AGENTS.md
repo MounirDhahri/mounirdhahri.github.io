@@ -13,9 +13,19 @@ Pushing to `gh-pages` deploys the live site through `.github/workflows/deploy.ym
 ## Posts
 
 - Each post is a folder: `src/content/blog/<slug>/index.md` (or `.mdx`), with its images next to it, linked as `./image.png`. The folder name is the URL.
-- Frontmatter follows the schema in `src/content.config.ts`: `title`, `description`, `date`, optional `tags`, `draft`.
+- Frontmatter follows the schema in `src/content.config.ts`: `title`, `description`, `date`, optional `tags`, `draft`, `crosspost`.
 - Site title, descriptions and social links live in `src/consts.ts`.
 - Keep the author's wording. Fix only what breaks the build or the layout, and ask before any other edit.
+
+### Crossposts
+
+A crosspost is an article first published somewhere else (for example the Artsy Engineering blog) and copied here in full. Add `crosspost: { name, url }` to its frontmatter. The post page then shows "Originally published on …", sets the canonical URL to the original, and the post appears on `/crossposts` as well as `/blog`.
+
+When importing one:
+- Use the original publication `date`.
+- Copy the text as published. Convert only formatting the site can't render, such as Jekyll front matter, `<!-- more -->`, Liquid tags and raw `<img>` tags with absolute paths (turn those into `![alt](./file.png)` next to `index.md`).
+- If the source has no description or alt text, draft them and ask the author to approve.
+- The privacy check below still applies, even when the original is already public.
 
 ## Privacy check before publishing
 

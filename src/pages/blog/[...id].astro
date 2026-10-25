@@ -8,6 +8,7 @@ import BackToPrevious from "@components/BackToPrevious.astro";
 import PostNavigation from "@components/PostNavigation.astro";
 import TableOfContents from "@components/TableOfContents.astro";
 import Giscus from "@components/Giscus.astro";
+import Link from "@components/Link.astro";
 
 export async function getStaticPaths() {
   const posts = (await getCollection("blog"))
@@ -51,7 +52,11 @@ const post = Astro.props;
 const { Content, headings } = await render(post);
 ---
 
-<Layout title={post.data.title} description={post.data.description}>
+<Layout
+  title={post.data.title}
+  description={post.data.description}
+  canonical={post.data.crosspost?.url}
+>
   <Container>
     <div class="animate">
       <BackToPrevious href="/blog">Back to blog</BackToPrevious>
@@ -84,6 +89,16 @@ const { Content, headings } = await render(post);
             ))}
           </div>
         ) : null
+      }
+      {
+        post.data.crosspost && (
+          <p class="animate pt-2 text-sm italic">
+            Originally published on{" "}
+            <Link href={post.data.crosspost.url} external>
+              {post.data.crosspost.name}
+            </Link>.
+          </p>
+        )
       }
     </div>
     {headings.length > 0 && <TableOfContents headings={headings} />}

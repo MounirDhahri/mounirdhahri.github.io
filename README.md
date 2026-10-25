@@ -25,6 +25,14 @@ draft: true # optional; drafts are left out of the site
 ---
 ```
 
+For an article first published elsewhere, add where it came from. It then shows an "Originally published on" note, points search engines at the original and appears on `/crossposts`:
+
+```md
+crosspost:
+  name: "Artsy Engineering"
+  url: "https://artsy.github.io/blog/2026/01/09/artsy-mobile-2025-wrapped/"
+```
+
 Before publishing, follow the privacy check in `AGENTS.md`.
 
 ## Deploy

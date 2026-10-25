@@ -16,6 +16,11 @@ export const BLOG: Metadata = {
   DESCRIPTION: "Articles on software engineering.",
 };
 
+export const CROSSPOSTS: Metadata = {
+  TITLE: "Crossposts",
+  DESCRIPTION: "Articles I wrote for other blogs, copied here so they stay together.",
+};
+
 export const SOCIALS: Socials = [
   {
     NAME: "GitHub",

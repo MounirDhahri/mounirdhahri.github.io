@@ -10,6 +10,9 @@ const blog = defineCollection({
     date: z.coerce.date(),
     draft: z.boolean().optional(),
     tags: z.array(z.string()).optional(),
+    crosspost: z
+      .object({ name: z.string(), url: z.url() })
+      .optional(),
   }),
 });
 
