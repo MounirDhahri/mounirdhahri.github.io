@@ -1,5 +1,5 @@
 ---
-title: "What Five Weeks With AI Agents Taught Me"
+title: "Going All In on AI Agents for Five Weeks: What I Learned"
 description: "What I learned shipping City Guide in five weeks with AI coding agents: tech plans, prototypes, QA, MCP and owning code you didn't write."
 date: 2026-10-25
 tags: ["ai", "engineering"]
